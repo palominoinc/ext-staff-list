@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<stylesheet id="stylH7oA71aTBvST" lang="any" show-in="main" webpalschematype="wpAppStylesheet"><![CDATA[<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:php="http://php.net/xsl" xmlns:exsl="http://exslt.org/common" extension-element-prefixes="exsl">
+
+
+  <xsl:template match="stafflist">
+
+    <xsl:variable name="chapter_id" select="../@id"/>
+    <xsl:variable name="path">
+      <xsl:call-template name="create_xpath_to_node">
+        <xsl:with-param name="node_id" select="$chapter_id"/>
+        <xsl:with-param name="web_root" select="//pages"/>
+      </xsl:call-template>
+    </xsl:variable>
+
+
+    <!-- Gets the user's 'sort by' options, where the user can sort by firstname or lastname-->
+    <xsl:variable name="sort_option">
+      <xsl:choose>
+        <xsl:when test="@sort = 'by-firstname'">firstname</xsl:when>
+        <xsl:when test="@sort = 'by-lastname'">lastname</xsl:when>
+        <xsl:when test="@sort = 'unsorted'">
+        </xsl:when>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="sort_order" select="@sort-order"/>
+    <xsl:variable name="image_style" select="@image-style"/>
+    <xsl:variable name="items_per_row" select="@items-per-row"/>
+    <xsl:variable name="col_size" select="@col-size"/>
+
+    <xsl:variable name="sorted_members">
+      <xsl:element name="stafflist">
+        <xsl:apply-templates select="./@*" mode="copy-attributes"/>
+        <xsl:for-each select="member">
+          <xsl:sort select="firstname[string($sort_option) = 'firstname'] | lastname[string($sort_option) = 'lastname']" order="{$sort_order}" />
+          <xsl:copy-of select="." />
+        </xsl:for-each>
+      </xsl:element>
+    </xsl:variable>
+
+    <div id="stafflist_{./@id}" class="stafflist">
+      <div id="stafflist_pages_{./@id}" >
+        <xsl:if test="$items_per_row &gt; 1">
+          <xsl:for-each select="exsl:node-set($sorted_members)/stafflist/member[position() mod $items_per_row = 1]">
+            <div class="row">
+              <xsl:for-each select=". | following-sibling::member[position() &lt; $items_per_row]">
+                <xsl:apply-templates select="." mode="list">
+                  <xsl:with-param name="image_style" select="$image_style"/>
+                  <xsl:with-param name="items_per_row" select="$items_per_row"/>
+                  <xsl:with-param name="col_size" select="$col_size"/>
+                  <xsl:with-param name="path" select="$path"/>
+                </xsl:apply-templates>
+              </xsl:for-each>
+            </div>
+          </xsl:for-each>
+        </xsl:if>
+        <xsl:if test="$items_per_row = 1">
+          <xsl:for-each select="exsl:node-set($sorted_members)/stafflist/member">
+            <div class="row">
+              <xsl:apply-templates select="." mode="list">
+                <xsl:with-param name="image_style" select="$image_style"/>
+                <xsl:with-param name="items_per_row" select="$items_per_row"/>
+                <xsl:with-param name="col_size" select="$col_size"/>
+                <xsl:with-param name="path" select="$path"/>
+              </xsl:apply-templates>
+            </div>
+          </xsl:for-each>
+        </xsl:if>
+      </div>
+    </div>
+
+    <div class="stafflist_selector stafflist_selector_{./@id}"></div>
+  </xsl:template>
+
+  <!-- ============= stafflist: list ============== -->
+  <xsl:template match="stafflist/member" mode="list">
+    <xsl:param name="image_style"/>
+    <xsl:param name="items_per_row"/>
+    <xsl:param name="col_size"/>
+    <xsl:param name="path"/>
+
+    <xsl:variable name="staffName" select="concat(./firstname, ' ', ./lastname)"/>
+
+
+    <!--  Column classes  -->
+    <xsl:variable name="col_class">
+      col-<xsl:value-of select="$col_size"/>-<xsl:value-of select="12 div $items_per_row"/>
+    </xsl:variable>
+
+    <xsl:variable name="detail_col_class">
+      <xsl:choose>
+        <xsl:when test="./image">
+          <xsl:choose>
+            <xsl:when test="../@image-size='8.33%'">
+              col-<xsl:value-of select="$col_size"/>-9
+            </xsl:when>
+            <xsl:when test="../@image-size='25%'">
+              col-<xsl:value-of select="$col_size"/>-9
+            </xsl:when>
+            <xsl:when test="../@image-size='33.33%'">
+              col-<xsl:value-of select="$col_size"/>-8
+            </xsl:when>
+            <xsl:when test="../@image-size='50%'">
+              col-<xsl:value-of select="$col_size"/>-6
+            </xsl:when>
+            <xsl:otherwise>
+              col-<xsl:value-of select="$col_size"/>-12
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:when>
+        <xsl:otherwise>
+          col-<xsl:value-of select="$col_size"/>-12
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="image_col_class">
+      <xsl:choose>
+        <xsl:when test="../@image-size='8.33%'">
+          col-<xsl:value-of select="$col_size"/>-1
+        </xsl:when>
+        <xsl:when test="../@image-size='25%'">
+          col-<xsl:value-of select="$col_size"/>-3
+        </xsl:when>
+        <xsl:when test="../@image-size='33.33%'">
+          col-<xsl:value-of select="$col_size"/>-4
+        </xsl:when>
+        <xsl:when test="../@image-size='50%'">
+          col-<xsl:value-of select="$col_size"/>-6
+        </xsl:when>
+        <xsl:otherwise>
+          col-<xsl:value-of select="$col_size"/>-12
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <div class="{$col_class}">
+      <div class="staffListItem">
+        <div class="row">
+          <xsl:choose>
+            <!-- ===== Listing style: detailed ===== -->
+            <xsl:when test="../@listing-style='detailed'">
+              <xsl:if test="./image">
+                <div class="{$image_col_class}">
+                  <div class="stafflist-image">
+                    <xsl:choose>
+                      <xsl:when test="../@enable-staff-pages = 'yes'">
+                        <a href="{$path}?node={./@id}"><xsl:apply-templates select="./image"/></a>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:apply-templates select="./image"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </div>
+                </div>
+              </xsl:if>
+              <div class="{$detail_col_class}">
+                <div class="stafflist-details">
+                  <div class="staffName">
+                    <xsl:choose>
+                      <xsl:when test="../@enable-staff-pages = 'yes'">
+                        <a href="{$path}?node={./@id}">
+                          <xsl:value-of select="$staffName"/>
+                        </a>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:apply-templates select="$staffName"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </div>
+
+                  <xsl:if test="./title">
+                    <div class="staffTitle">
+                      <xsl:apply-templates select="./title"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./email">
+                    <div class="staffEmail">
+                      <xsl:apply-templates select="./email"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./phone">
+                    <div class="staffPhone">
+                      <xsl:apply-templates select="./phone"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./fax">
+                    <div class="staffFax">
+                      <xsl:apply-templates select="./fax"/>
+                    </div>
+                  </xsl:if>
+
+                  <xsl:if test="./details">
+                    <div class="staff-details">
+                      <xsl:apply-templates select="./details"/>
+                    </div>
+                  </xsl:if>
+                  <div class="staff-socialmedia">
+                    <xsl:apply-templates select="./linkedin"/>
+                    <xsl:apply-templates select="./twitter"/>
+                    <xsl:apply-templates select="./facebook"/>
+                    <xsl:apply-templates select="./github"/>
+                    <xsl:apply-templates select="./tumblr"/>
+                    <xsl:apply-templates select="./flickr"/>
+                    <xsl:apply-templates select="./youtube"/>
+                  </div>
+                </div>
+              </div>
+            </xsl:when>
+            <!-- ===== Listing style: simple ===== -->
+            <xsl:otherwise>
+              <xsl:if test="./image">
+                <div class="{$image_col_class}">
+                  <div class="stafflist-image">
+                    <xsl:choose>
+                      <xsl:when test="../@enable-staff-pages = 'yes'">
+                        <a href="{$path}?node={./@id}"><xsl:apply-templates select="./image"/></a>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:apply-templates select="./image"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </div>
+                </div>
+              </xsl:if>
+              <div class="{$detail_col_class}">
+                <div class="stafflist-details">
+                  <div class="staffName">
+                    <xsl:choose>
+                      <xsl:when test="../@enable-staff-pages = 'yes'">
+                        <a href="{$path}?node={./@id}">
+                          <xsl:apply-templates select="$staffName"/>
+                        </a>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:apply-templates select="$staffName"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </div>
+                  <xsl:if test="./title">
+                    <div class="staffTitle">
+                      <xsl:apply-templates select="./title"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./email">
+                    <div class="staffEmail">
+                      <xsl:apply-templates select="./email"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./phone">
+                    <div class="staffPhone">
+                      <xsl:apply-templates select="./phone"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./fax">
+                    <div class="staffFax">
+                      <xsl:apply-templates select="./fax"/>
+                    </div>
+                  </xsl:if>
+                  <xsl:if test="./summary">
+                    <div class="staff-summary">
+                      <xsl:apply-templates select="./summary"/>
+                    </div>
+                  </xsl:if>
+                  <div class="staff-socialmedia">
+                    <xsl:apply-templates select="./linkedin"/>
+                    <xsl:apply-templates select="./twitter"/>
+                    <xsl:apply-templates select="./facebook"/>
+                    <xsl:apply-templates select="./github"/>
+                    <xsl:apply-templates select="./tumblr"/>
+                    <xsl:apply-templates select="./flickr"/>
+                    <xsl:apply-templates select="./youtube"/>
+                  </div>
+                </div>
+              </div>
+            </xsl:otherwise>
+          </xsl:choose>
+        </div>
+      </div>
+    </div>
+
+  </xsl:template>
+
+  <!-- ============= stafflist: individual page template ============== -->
+  <xsl:template match="stafflist/member">
+    <xsl:variable name="staffName" select="concat(./firstname, ' ', ./lastname)"/>
+    <div class="row">
+      <xsl:if test="./image">
+        <div class="col-{$col_size}-4">
+          <xsl:apply-templates select="./image"/>
+        </div>
+      </xsl:if>
+      <div class="col-{$col_size}-8">
+        <div class="staffName">
+          <xsl:value-of select="$staffName"/>
+        </div>
+        <div class="staffTitle">
+          <xsl:value-of select="./title"/>
+        </div>
+        <div class="staffEmail">
+          <xsl:apply-templates select="./email"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="staffDetails">
+          <xsl:apply-templates select="./details"/>
+        </div>
+        <div class="staff-socialmedia">
+          <xsl:apply-templates select="./linkedin"/>
+          <xsl:apply-templates select="./twitter"/>
+          <xsl:apply-templates select="./facebook"/>
+          <xsl:apply-templates select="./github"/>
+          <xsl:apply-templates select="./tumblr"/>
+          <xsl:apply-templates select="./flickr"/>
+          <xsl:apply-templates select="./youtube"/>
+        </div>
+      </div>
+    </div>
+  </xsl:template>
+
+
+  <!--  These templates print out specific sub element of the stafflist -->
+  <xsl:template match="stafflist/member/image">
+    <xsl:if test=". and @src !=''">
+      <img class="img-responsive" src="?f={@src}" />
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/title">
+    <i><xsl:value-of select="."/></i>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/email">
+    <i class="fa fa-envelope"></i><a href="mailto:{text()}"><xsl:value-of select="."/></a>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/phone">
+    <i class="fa fa-phone"></i><a href="tel://{text()}"><xsl:value-of select="."/></a>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/fax">
+    <i class="fa fa-fax"></i><xsl:value-of select="."/>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/linkedin">
+    <xsl:if test=". !=''">
+      <a href="{.}" target="_blank"><i class="fa fa-linkedin"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/facebook">
+    <xsl:if test=". !=''">
+      <a href="{.}" target="_blank"><i class="fa fa-facebook"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/github">
+    <xsl:if test=". != ''">
+      <a href="{.}" target="_blank"><i class="fa fa-github"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/twitter">
+    <xsl:if test=". != ''">
+      <a href="{.}" target="_blank"><i class="fa fa-twitter"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/tumblr">
+    <xsl:if test=". != ''">
+      <a href="{.}" target="_blank"><i class="fa fa-tumblr"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/flickr">
+    <xsl:if test=". != ''">
+      <a href="{.}" target="_blank"><i class="fa fa-flickr"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="stafflist/member/youtube">
+    <xsl:if test=". != ''">
+      <a href="{.}" target="_blank"><i class="fa fa-youtube"></i></a>
+    </xsl:if>
+  </xsl:template>
+
+
+  <xsl:template match="@*" mode="copy-attributes">
+    <xsl:copy-of select="."/>
+  </xsl:template>
+
+
+  <xsl:template name="create_xpath_to_node">
+    <xsl:param name="node_id"/>
+    <xsl:param name="web_root"/>
+    <xsl:variable name="node" select="$web_root//page[@id=$node_id]"/>
+
+    <xsl:variable name="ancestors" select="$node/ancestor::page"/>
+    <xsl:value-of select="string('/')"/>
+    <xsl:for-each select="$ancestors">
+      <xsl:value-of select="@name"/>
+      <xsl:value-of select="string('/')"/>
+    </xsl:for-each>
+    <xsl:value-of select="$node/@name"/>
+  </xsl:template>
+
+</xsl:stylesheet>]]></stylesheet>
