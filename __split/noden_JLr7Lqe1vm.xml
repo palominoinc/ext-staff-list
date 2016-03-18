@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <node-schema id="noden_JLr7Lqe1vm" lang="any" show-in="main" webpalschematype="wpPageRaw"><![CDATA[<schema xmlns="http://www.palominosys.com/wpschema">
   <complexType extends="wpPage" name="wpPage-wpStaffList">
-    <element name="stafflist" type="wpStaffList" folder="list"/>
+    <element name="staff-list" type="wpStaffList" folder="list"/>
   </complexType>
 
   <complexType name="wpStaffList" edittype="table" icon="group.png" lockable="yes">
@@ -10,19 +10,23 @@
     <attribute name="show-in" use="oneof" value="main,related1,related2,related3,related4,related5" type="wpString"/>
     <attribute name="listing-style" use="oneof" type="wpString" value="simple,detailed"/>
     <attribute name="enable-staff-pages" use="oneof" type="wpString" value="yes,no"/>
-    <attribute name="pagination-type" use="oneof" type="wpString" value="list-all,paging"/>
     <attribute name="sort" use="oneof" type="wpString" value="unsorted, by-firstname, by-lastname" />
     <attribute name="sort-order" use="oneof" type="wpString" value="ascending,descending" />
     <attribute name="items-per-row" use="oneof" type="wpString" value="1,2,3,4,6,12"/>
-    <attribute name="image-size" use="oneof" type="wpString" value="8.33%,25%,33.33%,50%,100%"/>
+    <attribute name="image-size" use="oneof" type="wpString" value="100%,50%,33.33%,25%,8.33%"/>
     <attribute name="col-size" use="oneof" type="wpString" value="sm,md,lg"/>
     <element name="member" type="wpStaffMember" />
+    
+    <message type="help">
+      Staff-list represents a list of members of your organization. Multiple such lists are allowed within one page. 
+      Make sure to set all attributes as per your preference. 
+    </message>
+    
   </complexType>
 
   <complexType name="wpStaffMember" edittype="sheet" icon="vcard.png" lockable="yes">
     <attribute name="id" use="auto" type="wpString" value="stf"/>
     <attribute name="name" use="required" type="wpString" />
-    <attribute name="show-in" use="oneof" type="wpString" value="main,related1,related2,related3,related4,related5"/>
     <attribute name="hidden" use="oneof" type="wpString" value="no,yes"/>
     <element name="firstname" type="wpString" maxOccurs="1"/>
     <element name="lastname" type="wpString" maxOccurs="1"/>
