@@ -1,10 +1,19 @@
 <?xml version="1.0"?>
-<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml"><h1>Staff-list</h1>
+<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml"><h1><span style="font-family:arial,helvetica,sans-serif">Staff-list</span></h1>
 
-<ul><li>Plugin<ch value="nbsp"/>for WebPal-powered applications</li>
-	<li>A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in a table</li>
-	<li>Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions, and insert a staff-list into a page you are creating</li>
-	<li>No need to edit any code; add any preferred CSS styling on top of what's available</li>
-	<li>Require<ch value="nbsp"/>Bootstrap 3.3 and FontAwesome 4.5</li>
-</ul><p>NOTE: 'extensions-essentials' is required for most WebPal extensions</p>
+<p><span style="font-family:arial,helvetica,sans-serif">Plugin<ch value="nbsp"/>for WebPal-powered applications</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in a table</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">Insert a staff-list into a page you are creating</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif"><img alt="data?command=webpalimage.download&amp;web_na" data-file-id="177421813114144918" src="177421813114144918"/></span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">No need to edit any code; add any preferred CSS styling on top of what's available</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</span></p>
+
+<p><span style="font-family:arial,helvetica,sans-serif">NOTE: 'extensions-essentials' is required for most WebPal extensions</span></p>
 </README>
