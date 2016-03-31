@@ -1,19 +1,25 @@
 <?xml version="1.0"?>
-<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml"><h1><span style="font-family:arial,helvetica,sans-serif">Staff-list</span></h1>
+<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml"><h1>Getting started</h1>
 
-<p><span style="font-family:arial,helvetica,sans-serif">Plugin<ch value="nbsp"/>for WebPal-powered applications</span></p>
+<p>Please refer<ch value="nbsp"/>to our [WebPal Developer Guide](https://www.gitbook.com/book/palomino/webpaldev/details) for more information on how to use WebPal extensions</p>
 
-<p><span style="font-family:arial,helvetica,sans-serif">A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in a table</span></p>
+<ul><li>Writing and extension</li>
+	<li>GitHub integration</li>
+</ul><p>NOTE: 'extensions-essentials' is required for all WebPal extensions</p>
 
-<p><span style="font-family:arial,helvetica,sans-serif">Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions</span></p>
+<h1>Staff-list</h1>
 
-<p><span style="font-family:arial,helvetica,sans-serif">Insert a staff-list into a page you are creating</span></p>
+<p>Plugin<ch value="nbsp"/>for WebPal-powered applications</p>
 
-<p><span style="font-family:arial,helvetica,sans-serif"><img alt="data?command=webpalimage.download&amp;web_na" data-file-id="177421813114144918" src="177421813114144918"/></span></p>
+<p>A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in a table</p>
 
-<p><span style="font-family:arial,helvetica,sans-serif">No need to edit any code; add any preferred CSS styling on top of what's available</span></p>
+<p>Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions</p>
 
-<p><span style="font-family:arial,helvetica,sans-serif">Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</span></p>
+<p>Insert a staff-list into a page you are creating</p>
 
-<p><span style="font-family:arial,helvetica,sans-serif">NOTE: 'extensions-essentials' is required for most WebPal extensions</span></p>
+<p><img alt="data?command=webpalimage.download&amp;web_na" data-file-id="177421813114144918" src="177421813114144918"/></p>
+
+<p>No need to edit any code; add any preferred CSS styling on top of what's available</p>
+
+<p>Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</p>
 </README>

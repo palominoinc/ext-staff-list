@@ -1,18 +1,26 @@
-<span style="font-family:arial,helvetica,sans-serif">Staff-list</span>
-======================================================================
+Getting started
+===============
 
-<span style="font-family:arial,helvetica,sans-serif">Plugin for WebPal-powered applications</span>
+Please refer to our [WebPal Developer Guide](https://www.gitbook.com/book/palomino/webpaldev/details) for more information on how to use WebPal extensions
 
-<span style="font-family:arial,helvetica,sans-serif">A staff-list is a list of staff members where all data is kept in a table</span>
+- Writing and extension
+- GitHub integration
 
-<span style="font-family:arial,helvetica,sans-serif">Simply add this plugin to your WebPal extensions</span>
+NOTE: 'extensions-essentials' is required for all WebPal extensions
 
-<span style="font-family:arial,helvetica,sans-serif">Insert a staff-list into a page you are creating</span>
+Staff-list
+==========
 
-<span style="font-family:arial,helvetica,sans-serif">![data?command=webpalimage.download&web_na](__resources/pastD3AWZ_li6zSp.png)</span>
+Plugin for WebPal-powered applications
 
-<span style="font-family:arial,helvetica,sans-serif">No need to edit any code; add any preferred CSS styling on top of what's available</span>
+A staff-list is a list of staff members where all data is kept in a table
 
-<span style="font-family:arial,helvetica,sans-serif">Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</span>
+Simply add this plugin to your WebPal extensions
 
-<span style="font-family:arial,helvetica,sans-serif">NOTE: 'extensions-essentials' is required for most WebPal extensions</span>
+Insert a staff-list into a page you are creating
+
+![data?command=webpalimage.download&web_na](__resources/pastD3AWZ_li6zSp.png)
+
+No need to edit any code; add any preferred CSS styling on top of what's available
+
+Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks

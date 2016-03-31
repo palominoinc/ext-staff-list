@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
-<stylesheet id="stylH7oA71aTBvST" lang="any" show-in="main" webpalschematype="wpAppStylesheet"><![CDATA[<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:php="http://php.net/xsl" xmlns:exsl="http://exslt.org/common" extension-element-prefixes="exsl">
+<stylesheet id="stylH7oA71aTBvST" lang="any" show-in="main" webpalschematype="wpAppStylesheet"><![CDATA[<?xml version="1.0"?>
+<!DOCTYPE xsl:stylesheet [
+<!ENTITY nbsp "&#160;" >
+]>
+
+<!-- (c) 2001-present All Copyrights Palomino System Innovations Inc.
+Illegal reproduction and disclosure will be prosecuted  -->
+
+<xsl:stylesheet version="1.0" 
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  
+                xmlns:php="http://php.net/xsl" 
+                xmlns:exsl="http://exslt.org/common" 
+                extension-element-prefixes="exsl">
 
 
   <xsl:template match="staff-list">
@@ -408,24 +420,8 @@
     </xsl:if>
   </xsl:template>
 
-
   <xsl:template match="@*" mode="copy-attributes">
     <xsl:copy-of select="."/>
-  </xsl:template>
-
-
-  <xsl:template name="create_xpath_to_node">
-    <xsl:param name="node_id"/>
-    <xsl:param name="web_root"/>
-    <xsl:variable name="node" select="$web_root//page[@id=$node_id]"/>
-
-    <xsl:variable name="ancestors" select="$node/ancestor::page"/>
-    <xsl:value-of select="string('/')"/>
-    <xsl:for-each select="$ancestors">
-      <xsl:value-of select="@name"/>
-      <xsl:value-of select="string('/')"/>
-    </xsl:for-each>
-    <xsl:value-of select="$node/@name"/>
   </xsl:template>
 
 </xsl:stylesheet>]]></stylesheet>
