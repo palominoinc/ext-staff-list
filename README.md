@@ -13,7 +13,7 @@ Staff-list
 
 Plugin for WebPal-powered applications
 
-A staff-list is a list of staff members where all data is kept in a table
+A staff-list is a list of staff members where all data is kept in an editable table with few options to stylize the layout
 
 Simply add this plugin to your WebPal extensions
 
