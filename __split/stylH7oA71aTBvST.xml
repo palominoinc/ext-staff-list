@@ -37,7 +37,6 @@ Illegal reproduction and disclosure will be prosecuted  -->
     </xsl:variable>
 
     <xsl:variable name="sort_order" select="@sort-order"/>
-    <xsl:variable name="image_style" select="@image-style"/>
     <xsl:variable name="items_per_row" select="@items-per-row"/>
     <xsl:variable name="col_size" select="@col-size"/>
 
@@ -58,7 +57,6 @@ Illegal reproduction and disclosure will be prosecuted  -->
             <div class="row">
               <xsl:for-each select=". | following-sibling::member[position() &lt; $items_per_row]">
                 <xsl:apply-templates select="." mode="list">
-                  <xsl:with-param name="image_style" select="$image_style"/>
                   <xsl:with-param name="items_per_row" select="$items_per_row"/>
                   <xsl:with-param name="col_size" select="$col_size"/>
                   <xsl:with-param name="path" select="$path"/>
@@ -71,7 +69,6 @@ Illegal reproduction and disclosure will be prosecuted  -->
           <xsl:for-each select="exsl:node-set($sorted_members)/staff-list/member">
             <div class="row">
               <xsl:apply-templates select="." mode="list">
-                <xsl:with-param name="image_style" select="$image_style"/>
                 <xsl:with-param name="items_per_row" select="$items_per_row"/>
                 <xsl:with-param name="col_size" select="$col_size"/>
                 <xsl:with-param name="path" select="$path"/>
@@ -87,7 +84,6 @@ Illegal reproduction and disclosure will be prosecuted  -->
 
   <!-- ============= stafflist: list ============== -->
   <xsl:template match="staff-list/member" mode="list">
-    <xsl:param name="image_style"/>
     <xsl:param name="items_per_row"/>
     <xsl:param name="col_size"/>
     <xsl:param name="path"/>
@@ -96,54 +92,30 @@ Illegal reproduction and disclosure will be prosecuted  -->
 
 
     <!--  Column classes  -->
-    <xsl:variable name="col_class">
-      col-<xsl:value-of select="$col_size"/>-<xsl:value-of select="12 div $items_per_row"/>
-    </xsl:variable>
+    <xsl:variable name="col_class">col-<xsl:value-of select="$col_size"/>-<xsl:value-of select="12 div $items_per_row"/></xsl:variable>
 
     <xsl:variable name="detail_col_class">
       <xsl:choose>
         <xsl:when test="./image">
           <xsl:choose>
-            <xsl:when test="../@image-size='8.33%'">
-              col-<xsl:value-of select="$col_size"/>-9
-            </xsl:when>
-            <xsl:when test="../@image-size='25%'">
-              col-<xsl:value-of select="$col_size"/>-9
-            </xsl:when>
-            <xsl:when test="../@image-size='33.33%'">
-              col-<xsl:value-of select="$col_size"/>-8
-            </xsl:when>
-            <xsl:when test="../@image-size='50%'">
-              col-<xsl:value-of select="$col_size"/>-6
-            </xsl:when>
-            <xsl:otherwise>
-              col-<xsl:value-of select="$col_size"/>-12
-            </xsl:otherwise>
+            <xsl:when test="../@image-size='8.33%'">col-<xsl:value-of select="$col_size"/>-11</xsl:when>
+            <xsl:when test="../@image-size='25%'">col-<xsl:value-of select="$col_size"/>-9</xsl:when>
+            <xsl:when test="../@image-size='33.33%'">col-<xsl:value-of select="$col_size"/>-8</xsl:when>
+            <xsl:when test="../@image-size='50%'">col-<xsl:value-of select="$col_size"/>-6</xsl:when>
+            <xsl:otherwise>col-<xsl:value-of select="$col_size"/>-12</xsl:otherwise>
           </xsl:choose>
         </xsl:when>
-        <xsl:otherwise>
-          col-<xsl:value-of select="$col_size"/>-12
-        </xsl:otherwise>
+        <xsl:otherwise>col-<xsl:value-of select="$col_size"/>-12</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
 
     <xsl:variable name="image_col_class">
       <xsl:choose>
-        <xsl:when test="../@image-size='8.33%'">
-          col-<xsl:value-of select="$col_size"/>-1
-        </xsl:when>
-        <xsl:when test="../@image-size='25%'">
-          col-<xsl:value-of select="$col_size"/>-3
-        </xsl:when>
-        <xsl:when test="../@image-size='33.33%'">
-          col-<xsl:value-of select="$col_size"/>-4
-        </xsl:when>
-        <xsl:when test="../@image-size='50%'">
-          col-<xsl:value-of select="$col_size"/>-6
-        </xsl:when>
-        <xsl:otherwise>
-          col-<xsl:value-of select="$col_size"/>-12
-        </xsl:otherwise>
+        <xsl:when test="../@image-size='8.33%'">col-<xsl:value-of select="$col_size"/>-1</xsl:when>
+        <xsl:when test="../@image-size='25%'">col-<xsl:value-of select="$col_size"/>-3</xsl:when>
+        <xsl:when test="../@image-size='33.33%'">col-<xsl:value-of select="$col_size"/>-4</xsl:when>
+        <xsl:when test="../@image-size='50%'">col-<xsl:value-of select="$col_size"/>-6</xsl:when>
+        <xsl:otherwise>col-<xsl:value-of select="$col_size"/>-12</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
 
