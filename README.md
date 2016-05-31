@@ -19,7 +19,7 @@ Simply add this plugin to your WebPal extensions
 
 Insert a staff-list into a page you are creating
 
-![data?command=webpalimage.download&web_na](__resources/pastD3AWZ_li6zSp.png)
+ ![data?command=webpalimage.download&web_na](__resources/pastD3AWZ_li6zSp.png)
 
 No need to edit any code; add any preferred CSS styling on top of what's available
 
