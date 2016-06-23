@@ -5,9 +5,7 @@
 
 <ul><li>Writing and extension</li>
 	<li>GitHub integration</li>
-</ul><p>NOTE: 'extensions-essentials' is required for all WebPal extensions</p>
-
-<h1>Staff-list</h1>
+</ul><h1>Staff-list</h1>
 
 <p>Plugin<ch value="nbsp"/>for WebPal-powered applications</p>
 
@@ -18,6 +16,18 @@
 <p>Insert a staff-list into a page you are creating</p>
 
 <p><img alt="data?command=webpalimage.download&amp;web_na" data-file-id="177421813114144918" src="177421813114144918"/></p>
+
+<p>Example of how staff-list will look in WebPal:</p>
+
+<p><img alt="" data-file-id="106856122910790681" src="106856122910790681" style="vertical-align:bottom;" title="" width="1199"/></p>
+
+<p>Check out Attributes for some layout and styling options:<ch value="nbsp"/></p>
+
+<p><img alt="" data-file-id="152870838611355284" src="152870838611355284" style="vertical-align:bottom;" title="" width="289"/></p>
+
+<p>Preview of how staff-list would look like on a webpage:<ch value="nbsp"/></p>
+
+<p><img alt="" data-file-id="356120829206097216" src="356120829206097216" style="vertical-align:bottom;" title="" width="1163"/></p>
 
 <p>No need to edit any code; add any preferred CSS styling on top of what's available</p>
 

@@ -6,8 +6,6 @@ Please refer to our [WebPal Developer Guide](https://www.gitbook.com/book/palomi
 - Writing and extension
 - GitHub integration
 
-NOTE: 'extensions-essentials' is required for all WebPal extensions
-
 Staff-list
 ==========
 
@@ -20,6 +18,18 @@ Simply add this plugin to your WebPal extensions
 Insert a staff-list into a page you are creating
 
 ![data?command=webpalimage.download&web_na](__resources/pastD3AWZ_li6zSp.png)
+
+Example of how staff-list will look in WebPal:
+
+![](__resources/imgEBYmVA7Hr2ZQ.PNG)
+
+Check out Attributes for some layout and styling options:
+
+![](__resources/imgdt8991LohxBO.PNG)
+
+Preview of how staff-list would look like on a webpage:
+
+![](__resources/imgFPh4CCXyGZy_.PNG)
 
 No need to edit any code; add any preferred CSS styling on top of what's available
 

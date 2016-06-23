@@ -28,10 +28,10 @@
     <attribute name="id" use="auto" type="wpString" value="stf"/>
     <attribute name="name" use="required" type="wpString" />
     <attribute name="hidden" use="oneof" type="wpString" value="no,yes"/>
+    <element name="image" type="wpImage"/>
     <element name="firstname" type="wpString" maxOccurs="1"/>
     <element name="lastname" type="wpString" maxOccurs="1"/>
     <element name="title" type="wpStringL" />
-    <element name="image" type="wpImage" maxOccurs="1"/>
     <element name="email" type="wpEmail"/>
     <element name="phone" type="wpString"/>
     <element name="fax" type="wpString" />
@@ -44,6 +44,7 @@
     <element name="tumblr" type="wpString"/>
     <element name="flickr" type="wpString"/>
     <element name="youtube" type="wpString"/>
+    
   </complexType>
 
 </schema>

@@ -330,7 +330,7 @@ Illegal reproduction and disclosure will be prosecuted  -->
   <!--  These templates print out specific sub element of the staff-list -->
   <xsl:template match="staff-list/member/image">
     <xsl:if test=". and @src !=''">
-      <img class="img-responsive" src="?f={@src}" />
+      <img class="img-responsive" src="?f={@src}" alt="{@alt}" />
     </xsl:if>
   </xsl:template>
 
