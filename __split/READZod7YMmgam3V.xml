@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<<<<<<< HEAD
 <README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml"><h1>Getting started</h1>
 
 <p>Please refer<ch value="nbsp"/>to our [WebPal Developer Guide](https://www.gitbook.com/book/palomino/webpaldev/details) for more information on how to use WebPal extensions</p>
@@ -33,3 +34,24 @@
 
 <p>Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</p>
 </README>
+=======
+<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml">
+    <h1>Getting started</h1>
+    <p>Please refer<ch value="nbsp"/>to our [WebPal Developer Guide](https://www.gitbook.com/book/palomino/webpaldev/details) for more information on how to use WebPal extensions</p>
+    <ul>
+      <li>Writing and extension</li>
+      <li>GitHub integration</li>
+    </ul>
+    <p>NOTE: 'extensions-essentials' is required for all WebPal extensions</p>
+    <h1>Staff-list</h1>
+    <p>Plugin<ch value="nbsp"/>for WebPal-powered applications</p>
+    <p>A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in an editable table with few options to stylize the layout</p>
+    <p>Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions</p>
+    <p>Insert a staff-list into a page you are creating</p>
+    <p>
+      <img alt="data?command=webpalimage.download&amp;web_na" data-file-id="177421813114144918" src="177421813114144918"/>
+    </p>
+    <p>No need to edit any code; add any preferred CSS styling on top of what's available</p>
+    <p>Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</p>
+  </README>
+>>>>>>> 72501610567f97d9cb36492eb1341c1d22f1d7fb

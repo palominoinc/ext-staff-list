@@ -1,0 +1,10 @@
+.square.image {
+    position: relative;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+
+.square.image img {
+    position: absolute;
+}
+
