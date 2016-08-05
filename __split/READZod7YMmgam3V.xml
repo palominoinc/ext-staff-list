@@ -1,35 +1,35 @@
 <?xml version="1.0"?>
-<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml"><h1>Getting started</h1>
-
-<p>Please refer<ch value="nbsp"/>to our [WebPal Developer Guide](https://www.gitbook.com/book/palomino/webpaldev/details) for more information on how to use WebPal extensions</p>
-
-<ul><li>Writing and extension</li>
-	<li>GitHub integration</li>
-</ul><h1>Staff-list</h1>
-
-<p>Plugin<ch value="nbsp"/>for WebPal-powered applications</p>
-
-<p>A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in an editable table with few options to stylize the layout</p>
-
-<p>Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions</p>
-
-<p>Insert a staff-list into a page you are creating</p>
-
-<p><img alt="" data-file-id="122525323329872390" src="122525323329872390" style="vertical-align:bottom;" title="" width="668"/><br/><span style="display:none"><ch value="nbsp"/></span></p>
-
-<p>Example of how staff-list will look in WebPal:</p>
-
-<p><img alt="" data-file-id="322789292450484544" src="322789292450484544" style="vertical-align:bottom;" title="" width="1199"/></p>
-
-<p>Check out Attributes for some layout and styling options:<ch value="nbsp"/></p>
-
-<p><img alt="" data-file-id="157463205292703855" src="157463205292703855" style="vertical-align:bottom;" title="" width="289"/></p>
-
-<p>Preview of how staff-list would look like on a webpage:<ch value="nbsp"/></p>
-
-<p><img alt="" data-file-id="754359210200780116" src="754359210200780116" style="vertical-align:bottom;" title="" width="1163"/></p>
-
-<p>No need to edit any code; add any preferred CSS styling on top of what's available</p>
-
-<p>Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</p>
-</README>
+<README id="READZod7YMmgam3V" lang="any" webpalschematype="wpHtml">
+    <h1>Getting started</h1>
+    <p>Please refer<ch value="nbsp"/>to our [WebPal Developer Guide](https://www.gitbook.com/book/palomino/webpaldev/details) for more information on how to use WebPal extensions</p>
+    <ul>
+      <li>Writing and extension</li>
+      <li>GitHub integration</li>
+    </ul>
+    <h1>Staff-list</h1>
+    <p>Plugin<ch value="nbsp"/>for WebPal-powered applications</p>
+    <p>A staff-list is a list of staff members where all<ch value="nbsp"/>data is kept in an editable table with few options to stylize the layout</p>
+    <p>Simply<ch value="nbsp"/>add this plugin to your WebPal<ch value="nbsp"/>extensions</p>
+    <p>Insert a staff-list into a page you are creating</p>
+    <p>
+      <img alt="" data-file-id="122525323329872390" src="122525323329872390" style="vertical-align:bottom;" title="" width="668"/>
+      <br/>
+      <span style="display:none">
+        <ch value="nbsp"/>
+      </span>
+    </p>
+    <p>Example of how staff-list will look in WebPal:</p>
+    <p>
+      <img alt="" data-file-id="322789292450484544" src="322789292450484544" style="vertical-align:bottom;" title="" width="1199"/>
+    </p>
+    <p>Check out Attributes for some layout and styling options:<ch value="nbsp"/></p>
+    <p>
+      <img alt="" data-file-id="157463205292703855" src="157463205292703855" style="vertical-align:bottom;" title="" width="289"/>
+    </p>
+    <p>Preview of how staff-list would look like on a webpage:<ch value="nbsp"/></p>
+    <p>
+      <img alt="" data-file-id="754359210200780116" src="754359210200780116" style="vertical-align:bottom;" title="" width="1163"/>
+    </p>
+    <p>No need to edit any code; add any preferred CSS styling on top of what's available</p>
+    <p>Requires Bootstrap 3.3 and FontAwesome 4.5 frameworks</p>
+  </README>
